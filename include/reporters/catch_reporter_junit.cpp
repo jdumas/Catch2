@@ -199,6 +199,9 @@ namespace Catch {
             // events and write those out appropriately.
             xml.writeAttribute( "status", "run" );
 
+            if (m_okToFail) {
+                xml.scopedElement( "skipped" );
+            }
             writeAssertions( sectionNode );
 
             if( !sectionNode.stdOut.empty() )
